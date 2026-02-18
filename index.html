@@ -1,310 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lotachi Obiajulu | DevOps & IT Infrastructure Engineer</title>
-  <meta name="description" content="CV website for Lotachi Obiajulu — IT Infrastructure & DevOps Engineer with 6 years' experience in AWS, Kubernetes, Docker, and CI/CD." />
-  <meta name="theme-color" content="#0ea5e9" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Lotachi Obiajulu | DevOps & IT Infrastructure Engineer" />
-  <meta property="og:description" content="IT Infrastructure Engineer with 6 years of experience in AWS, Kubernetes, Docker, and CI/CD." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%230ea5e9'/%3E%3Ctext x='50%25' y='52%25' font-size='64' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3ELotachi Obiajulu%3C/text%3E%3C/svg%3E" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230ea5e9'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='Arial' font-size='54' fill='white'%3EL%3C/text%3E%3C/svg%3E" />
-
-  <style>
-    :root{
-      --bg: #0b1220;          /* dark base */
-      --card: #121a2b;
-      --text: #e5e7eb;
-      --muted:#93a4bd;
-      --brand:#0ea5e9;        /* sky-500 */
-      --accent:#22d3ee;       /* cyan-400 */
-      --ring: rgba(34,211,238,.4);
-      --light-bg:#f7fafc;     /* light */
-      --light-card:#ffffff;
-      --light-text:#111827;
-      --light-muted:#4b5563;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial; background:var(--bg); color:var(--text)}
-    .light body{background:var(--light-bg);color:var(--light-text)}
-    .container{max-width:1000px;margin:0 auto;padding:24px}
-    header.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg, rgba(14,165,233,.15), transparent)}
-    .hero-inner{display:grid;grid-template-columns:1fr;gap:16px;align-items:center;padding:48px 24px}
-    @media(min-width:900px){.hero-inner{grid-template-columns:1.3fr .7fr}}
-    h1{font-size:clamp(28px,3.4vw,44px);line-height:1.2;margin:0}
-    .subtitle{color:var(--muted);margin-top:8px}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(14,165,233,.08)}
-    .row{display:flex;flex-wrap:wrap;gap:10px}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.15);text-decoration:none;color:inherit}
-    .cta.primary{background:var(--brand); color:#081018; border:none; box-shadow:0 8px 24px rgba(14,165,233,.35)}
-    .cta:hover{transform:translateY(-1px)}
-    nav.nav{position:sticky;top:0;background:rgba(11,18,32,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);z-index:20}
-    .nav-inner{max-width:1000px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 16px}
-    .nav a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:10px}
-    .nav a:hover{background:rgba(255,255,255,.06)}
-    .grid{display:grid;gap:16px}
-    @media(min-width:800px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-    section{padding:28px 24px}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px}
-    h2{font-size:22px;margin:0 0 14px;display:flex;align-items:center;gap:8px}
-    h3{margin:0;font-size:18px}
-    .muted{color:var(--muted)}
-    ul{margin:10px 0 0 20px}
-    li{margin:6px 0}
-    .skill-badges{display:flex;flex-wrap:wrap;gap:10px}
-    .badge{padding:8px 12px;border-radius:999px;background:#0f172a;border:1px solid rgba(255,255,255,.08);font-size:14px}
-    .kpis{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
-    .kpi{flex:1 1 160px;background:linear-gradient(180deg, rgba(34,211,238,.08), transparent);border:1px dashed rgba(34,211,238,.35);padding:12px;border-radius:12px}
-    footer{padding:30px 24px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted)}
-    /* light theme overrides */
-    .light .card{background:var(--light-card);border-color:#e5e7eb}
-    .light .chip{background:#e6f7ff;border-color:#bae6fd}
-    .light .badge{background:#f3f4f6;border-color:#e5e7eb}
-    .light nav.nav{background:rgba(255,255,255,.8);border-color:#e5e7eb}
-    .light .kpi{border-color:#a5f3fc}
-    /* Print (PDF) */
-    @media print{
-      nav.nav, .print-hide{display:none !important}
-      body{background:#fff;color:#111}
-      .card{background:#fff;border:1px solid #ddd}
-      a[href]:after{content:" (" attr(href) ")";font-size:12px;color:#555}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loratek LTD - Innovative Tech & AI Solutions for Businesses Worldwide">
+    <title>Loratek LTD | Tech & AI Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background: linear-gradient(135deg, #4B79A1, #283E51);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+        header a.button {
+            background-color: #FF6B6B;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #4B79A1;
+            margin-bottom: 20px;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .service {
+            background: #fff;
+            flex: 1 1 250px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .service h3 {
+            margin-bottom: 15px;
+            color: #FF6B6B;
+        }
+        .service p {
+            color: #666;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta a.button {
+            background-color: #4B79A1;
+            padding: 15px 35px;
+        }
+        footer {
+            background-color: #283E51;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="row">
-        <a href="#top" aria-label="Home">🏷️ Lotachi</a>
-        <a href="#summary">Summary</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#certs">Certifications</a>
-      </div>
-      <div class="row">
-        <button class="cta" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌓 Theme</button>
-        <a class="cta" href="mailto:Lotachi90@gmail.com">✉️ Email</a>
-        <button class="cta primary" id="pdfBtn" title="Download PDF">⬇️ Download PDF</button>
-      </div>
-    </div>
-  </nav>
+    <!-- Header / Hero Section -->
+    <header>
+        <h1>Loratek LTD</h1>
+        <p>Innovative Tech & AI Solutions for the Modern World</p>
+        <a href="#contact" class="button">Get Started</a>
+    </header>
 
-  <header id="top" class="hero">
-    <div class="container hero-inner">
-      <div>
-        <span class="chip">🚀 DevOps & IT Infrastructure Engineer</span>
-        <h1>Lotachi Obiajulu</h1>
-        <p class="subtitle">IT Infrastructure Engineer with 6 years of experience in DevOps, cloud architecture, and server management. Proficient in AWS, Kubernetes, Docker, and CI/CD automation. Skilled in designing and managing hybrid infrastructure, reducing downtime and boosting performance. Collaborates across development, QA, and operations to drive automation and scalable solutions.</p>
-        <div class="kpis">
-          <div class="kpi"><strong>90+ microservices</strong><br><span class="muted">CI/CD automated</span></div>
-          <div class="kpi"><strong>30% fewer</strong><br><span class="muted">release errors</span></div>
-          <div class="kpi"><strong>50% faster</strong><br><span class="muted">provisioning (IaC)</span></div>
-          <div class="kpi"><strong>99.9% uptime</strong><br><span class="muted">with Prometheus/Grafana</span></div>
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service">
+                <h3>AI & Machine Learning</h3>
+                <p>Designing intelligent systems that learn, adapt, and optimize your business processes.</p>
+            </div>
+            <div class="service">
+                <h3>Custom Software Development</h3>
+                <p>Tailored software solutions for web, mobile, and enterprise applications that scale.</p>
+            </div>
+            <div class="service">
+                <h3>Cloud & Infrastructure</h3>
+                <p>Reliable cloud services, secure deployments, and IT infrastructure optimized for performance.</p>
+            </div>
+            <div class="service">
+                <h3>Data Analytics & Insights</h3>
+                <p>Transform raw data into actionable insights with predictive analytics and reporting tools.</p>
+            </div>
         </div>
-        <div class="row" style="margin-top:14px">
-          <a class="cta primary" href="tel:+2348060211760">📞 +234 806 021 1760</a>
-          <a class="cta" href="mailto:Lotachi90@gmail.com">📧 Lotachi90@gmail.com</a>
-        </div>
-      </div>
-      <div class="card">
-        <h3 style="margin-bottom:6px">Core Stack</h3>
-        <div class="skill-badges">
-          <span class="badge">AWS (EC2, S3, IAM)</span>
-          <span class="badge">Kubernetes • Helm • Ingress</span>
-          <span class="badge">Docker</span>
-          <span class="badge">Terraform</span>
-          <span class="badge">Jenkins • GitLab • Bitbucket</span>
-          <span class="badge">Prometheus • Grafana • Zabbix</span>
-          <span class="badge">NGINX</span>
-          <span class="badge">Linux (Debian, Ubuntu)</span>
-          <span class="badge">PostgreSQL</span>
-          <span class="badge">Sonatype Nexus • Archiva</span>
-          <span class="badge">Go • Bash</span>
-          <span class="badge">Jira • Confluence</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="summary" class="grid cols-2">
-      <div class="card">
-        <h2>🧭 Professional Summary</h2>
-        <p>IT Infrastructure Engineer with 6 years of experience in DevOps, cloud architecture, and server management. Proficient in AWS, Kubernetes, Docker, and CI/CD pipeline automation. Skilled in designing and managing hybrid infrastructure, reducing system downtime and enhancing performance. Proven ability to collaborate with development, QA, and operations teams to drive automation and enable scalable solutions.</p>
-      </div>
-      <div class="card">
-        <h2>🔧 Skills Highlights</h2>
-        <ul>
-          <li><strong>Cloud & Virtualization:</strong> AWS (EC2, S3, IAM), VMware</li>
-          <li><strong>Containers & Orchestration:</strong> Docker, Kubernetes, Helm, Ingress</li>
-          <li><strong>CI/CD & Version Control:</strong> Jenkins, GitLab, Bitbucket, Maven</li>
-          <li><strong>Monitoring & Logging:</strong> Prometheus, Grafana, Kafka, Zabbix</li>
-          <li><strong>Servers & OS:</strong> Linux (Debian, Ubuntu), Unix</li>
-          <li><strong>Web & Networking:</strong> NGINX, LDAPS, Active Directory</li>
-          <li><strong>Databases & Repos:</strong> PostgreSQL, Sonatype Nexus, Archiva</li>
-          <li><strong>Scripting & Automation:</strong> Go, Bash, Terraform</li>
-          <li><strong>Collaboration:</strong> Jira, Confluence</li>
-        </ul>
-      </div>
     </section>
 
-    <section id="experience" class="grid cols-2">
-      <div class="card">
-        <h2>💼 Experience</h2>
-        <h3>IT Infrastructure Engineer / DevOps Engineer — Hardcore Biometric Systems</h3>
-        <p class="muted">Feb 2023 – Present</p>
-        <ul>
-          <li>Managed on‑premises datacentre and network infrastructure (servers, storage, networking).</li>
-          <li>Designed, deployed, and maintained production Kubernetes clusters for 10+ apps using Helm, reducing release errors by 30% and improving reliability.</li>
-          <li>Configured NGINX Ingress with path‑based routing to enable seamless access to 10+ applications.</li>
-          <li>Built and managed IaC pipelines with Terraform across hybrid cloud, cutting provisioning time by 50%.</li>
-          <li>Led migration from on‑prem to AWS, improving scalability and reducing infrastructure costs by 25%.</li>
-          <li>Automated robust CI/CD for 90+ microservices using Jenkins, GitLab, and Bitbucket, boosting deployment speed and consistency.</li>
-          <li>Designed and deployed a highly‑available self‑hosted mail server (iRedMail) with LDAPS‑based SSO; added NGINX caching and load‑balancing for security and performance.</li>
-          <li>Replaced Archiva with Sonatype Nexus for centralized artifact & container image management, streamlining DevOps workflows.</li>
-          <li>Deployed and managed AWS services to ensure high availability and performance of cloud resources.</li>
-          <li>Deployed and maintained Prometheus & Grafana monitoring, achieving 99.9% infrastructure uptime via proactive alerting.</li>
-          <li>Installed and maintained MMABIS biometric applications in a Debian/Docker environment.</li>
-          <li>Implemented Maven for build automation and dependency management for 20+ applications.</li>
-          <li>Collaborated closely with development teams to ensure QA and seamless software delivery.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 style="visibility:hidden">Spacer</h2>
-        <h3>System Support Engineer — Avetium Consult Limited</h3>
-        <p class="muted">Mar 2020 – Dec 2022</p>
-        <ul>
-          <li>Played a key role in the cross‑functional team that secured ISO/IEC 27001 certification, strengthening information security and compliance.</li>
-          <li>Provided Tier 1 & 2 support for 60+ enterprise systems, maintaining high availability and resolving 100+ weekly issues via Zendesk/Zoho with a 98% closure rate.</li>
-          <li>Managed and secured NGINX web servers for application hosting.</li>
-          <li>Implemented and maintained MySQL databases to enhance data management and retrieval.</li>
-          <li>Performed trend analysis (Excel, PowerPoint) to improve CRM features, boosting customer retention by 50%.</li>
-          <li>Hardened system security through OS patching, firewall configuration, and log monitoring to prevent unauthorized access.</li>
-        </ul>
-
-        <h3 style="margin-top:18px">IT Support Engineer — Mactay Group</h3>
-        <p class="muted">Nov 2018 – Mar 2020</p>
-        <ul>
-          <li>Oversaw network security, server backups, and provided remote desktop support to 60+ users.</li>
-          <li>Led the implementation of Office 365 to enhance collaboration and productivity.</li>
-          <li>Provided Tier 1 & 2 support (remote & on‑site), improving user satisfaction.</li>
-          <li>Streamlined onboarding by 40% by introducing automation for provisioning systems and user accounts.</li>
-          <li>Configured routers, switches, and LAN for seamless connectivity and optimized throughput.</li>
-          <li>Prepared reports, tracked inventories, and negotiated vendor purchases.</li>
-        </ul>
-
-        <h3 style="margin-top:18px">IT Support (Intern) — Digital Bridge Institute</h3>
-        <p class="muted">Feb 2017 – Aug 2017</p>
-        <ul>
-          <li>Diagnosed and resolved network and system issues across 60+ workstations, cutting downtime.</li>
-          <li>Installed and maintained 70 Windows systems, ensuring software consistency and compliance.</li>
-          <li>Configured Active Directory for user access control and streamlined authentication.</li>
-          <li>Conducted software installations and upgrades to maintain reliability and user satisfaction.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="education" class="grid cols-2">
-      <div class="card">
-        <h2>🎓 Education</h2>
-        <p><strong>Landmark University, Kwara State, Nigeria</strong><br/>Bachelor of Electrical and Electronics Engineering<br/><span class="muted">Sept 2013 – May 2018</span></p>
-      </div>
-      <div class="card" id="skills">
-        <h2>🧰 Tooling & Platforms</h2>
-        <div class="skill-badges">
-          <span class="badge">AWS</span>
-          <span class="badge">VMware</span>
-          <span class="badge">Kubernetes</span>
-          <span class="badge">Helm</span>
-          <span class="badge">Ingress</span>
-          <span class="badge">Docker</span>
-          <span class="badge">Jenkins</span>
-          <span class="badge">GitLab</span>
-          <span class="badge">Bitbucket</span>
-          <span class="badge">Maven</span>
-          <span class="badge">Prometheus</span>
-          <span class="badge">Grafana</span>
-          <span class="badge">Kafka</span>
-          <span class="badge">Zabbix</span>
-          <span class="badge">Linux</span>
-          <span class="badge">Unix</span>
-          <span class="badge">NGINX</span>
-          <span class="badge">LDAPS</span>
-          <span class="badge">Active Directory</span>
-          <span class="badge">PostgreSQL</span>
-          <span class="badge">Nexus</span>
-          <span class="badge">Archiva</span>
-          <span class="badge">Go</span>
-          <span class="badge">Bash</span>
-          <span class="badge">Terraform</span>
-          <span class="badge">Jira</span>
-          <span class="badge">Confluence</span>
+    <!-- Mission Section -->
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p>At Loratek LTD, we strive to empower businesses with cutting-edge technology and AI innovations that drive efficiency, growth, and sustainable impact. Our goal is to make advanced solutions accessible, reliable, and transformational for companies worldwide.</p>
+        <div class="cta">
+            <a href="#contact" class="button">Work With Us</a>
         </div>
-      </div>
     </section>
 
-    <section id="certs">
-      <div class="card">
-        <h2>📜 Certifications</h2>
-        <ul>
-          <li>Kubernetes and Cloud Native Associate</li>
-          <li>AWS Certified Cloud Practitioner</li>
-          <li>Certified Kubernetes Application Developer (In‑view)</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container">
-    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
-      <span>© <span id="year"></span> Lotachi Obiajulu — Lagos, Nigeria</span>
-      <div class="row">
-        <a class="cta" href="mailto:Lotachi90@gmail.com">Email</a>
-        <a class="cta" href="tel:+2348060211760">Phone</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JSON-LD for richer search snippets -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Lotachi Obiajulu",
-    "jobTitle": "IT Infrastructure / DevOps Engineer",
-    "email": "mailto:Lotachi90@gmail.com",
-    "telephone": "+2348060211760",
-    "address": {"@type": "PostalAddress", "addressCountry": "NG"},
-    "knowsAbout": [
-      "AWS", "Kubernetes", "Docker", "Terraform", "NGINX", "Prometheus", "Grafana",
-      "CI/CD", "Linux", "Helm", "PostgreSQL", "Sonatype Nexus", "Bash", "Go"
-    ]
-  }
-  </script>
-
-  <script>
-    // Theme toggle (persists to localStorage)
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    const saved = localStorage.getItem('theme');
-    if ((saved === 'light') || (!saved && prefersLight)) document.documentElement.classList.add('light');
-    toggle.addEventListener('click',()=>{
-      document.documentElement.classList.toggle('light');
-      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
-    });
-
-    // Print to PDF
-    document.getElementById('pdfBtn').addEventListener('click',()=>{ window.print(); });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Contact us: info@loratek.com | +1 (555) 123-4567</p>
+        <p>&copy; 2026 Loratek LTD. All rights reserved.</p>
+    </footer>
 </body>
 </html>
